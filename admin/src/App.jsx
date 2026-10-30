@@ -1,10 +1,16 @@
 import './App.css'
+import Sidebar from './Components/SideBar'
+import Navbar from './pages/Navbar'
 
 function App() {
   return (
-    <>
-      <h1 className='text-red-500 text-8xl'>admin</h1>
-    </>
+    <div>
+      <Navbar />
+      <hr />
+      <div className="app-content">
+        <Sidebar />
+      </div>
+    </div>
   )
 }
 
