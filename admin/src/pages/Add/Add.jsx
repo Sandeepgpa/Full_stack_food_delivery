@@ -15,18 +15,18 @@ const Add = () => {
 
         <div className='flex-col w-[max(40%,280px)]'>
           <p>Product Name</p>
-          <input type="text" name="name" placeholder='Type here' className='p-2.5 border-2 border-black' />
+          <input type="text" name="name" placeholder='Type here' className='p-2.5 border border-gray-300' />
         </div>
 
         <div className='flex-col w-[max(40%,280px)]'>
           <p>Product Description</p>
-          <textarea name="description" placeholder='Write Content here...' rows='5' className='p-2.5'/>
+          <textarea name="description" placeholder='Write Content here...' rows='5' className='p-2.5 border border-gray-300'/>
         </div>
 
         <div className='flex gap-8'>
           <div className='flex-col'>
             <p>Product Category</p>
-            <select name="category" className='max-w-30 p-2.5'>
+            <select name="category" className='max-w-30 p-2.5 border border-gray-300'>
               <option value="Salad">Salad</option>
               <option value="Rolls">Rolls</option>
               <option value="Deserts">Deserts</option>
@@ -39,7 +39,7 @@ const Add = () => {
           </div>
           <div>
             <p>Product Price</p>
-            <input type="number" name="price" placeholder='₹200' className='max-w-30 p-2.5'/>
+            <input type="number" name="price" placeholder='₹200' className='max-w-30 p-2.5 border border-gray-300'/>
           </div>
         </div>
         <button type='submit' className='max-w-30 border-none p-2.5 bg-black text-white cursor-pointer'>ADD</button>
