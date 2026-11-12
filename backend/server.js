@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 import connectdb from "./config/db.js";
 import dns from "dns";
 import foodRouter from "./routes/foodRoute.js";
@@ -12,10 +13,17 @@ const PORT = process.env.PORT;
 
 dns.setServers(["1.1.1.1", "8.8.8.8"]);
 
-//middlwear
+//CORS configuration
+app.use(cors({
+    origin: 'http://localhost:5173',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders:["Content-type","Authorization"],
+    optionsSuccessStatus:200
+}));
 
+//middlwear
 app.use(express.json());
-// app.use(cors())
+app.use(urlencoded({ extended: true }));
 
 // Database Connection
 connectdb();
