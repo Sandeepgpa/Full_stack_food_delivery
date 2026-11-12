@@ -2,17 +2,18 @@ import React, { useState } from 'react'
 import { assets } from '../../assets/assets'
 import axios from 'axios';
 
+
 const Add = () => {
 
-  const url = "http://localhost:3000"
+  const url = import.meta.env.VITE_SERVER_URL;
+
   const[image, setImage] = useState(false)
   const [data, setData] = useState({
-    name: "",
-    description: "",
-    price: "",
-    category: "Salad",
+    name:"",
+    description:"",
+    price:"",
+    category:"Salad"
   })
-  console.log(data)
 
   const onChangeHandler = (e) =>{
     const name = e.target.name;
@@ -31,12 +32,14 @@ const Add = () => {
     const response = await axios.post(`${url}/api/food/add`, formData);
     if (response.data.success) {
       setData({
-        name: "",
-        description: "",
-        price: "",
-        category: "Salad",
+        name:"",
+        description:"",
+        price:"",
+        category:"Salad"
       });
+      setImage(false);
     } else {
+      console.error("Failed to add food item:", response.data.message);
     }
   }
 
