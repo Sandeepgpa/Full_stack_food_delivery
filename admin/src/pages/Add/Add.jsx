@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { assets } from '../../assets/assets'
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 
 const Add = () => {
@@ -38,8 +39,9 @@ const Add = () => {
         category:"Salad"
       });
       setImage(false);
+      toast.success(response.data.message);
     } else {
-      console.error("Failed to add food item:", response.data.message);
+      toast.error(response.data.message);
     }
   }
 
