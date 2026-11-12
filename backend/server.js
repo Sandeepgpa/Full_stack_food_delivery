@@ -23,7 +23,7 @@ app.use(cors({
 
 //middlwear
 app.use(express.json());
-app.use(urlencoded({ extended: true }));
+// app.use(urlencoded({ extended: true }));
 
 // Database Connection
 connectdb();
