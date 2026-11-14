@@ -46,7 +46,7 @@ const Add = () => {
   }
 
   return (
-    <div className='width-[70%] ml-[max(5vw,25px)] mt-13 text-sm '>
+    <div className='w-[70%] ml-[max(5vw,25px)] mt-13 text-sm '>
       <form className='flex-col' onSubmit={onSubmitHandler}>
         <div className='flex-col'>
           <p>Upload Image</p>
