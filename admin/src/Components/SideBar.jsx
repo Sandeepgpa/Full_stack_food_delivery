@@ -15,17 +15,17 @@ const Sidebar = () => {
 
         <NavLink to="/add" className={navLinkStyle} >
           <img src={assets.add_icon} alt="Add_icon" />
-          <p>Add Item</p>
+          <p className="max-sm:hidden">Add Item</p>
         </NavLink>
 
         <NavLink to="/list" className={navLinkStyle} >
           <img src={assets.order_icon} alt="Add_icon" />
-          <p>List items</p>
+          <p className="max-sm:hidden">List items</p>
         </NavLink>
 
         <NavLink to="/orders" className={navLinkStyle} >
           <img src={assets.order_icon} alt="Order_icon" />
-          <p>Orders</p>
+          <p className="max-sm:hidden">Orders</p>
         </NavLink>
       </div>
     </div>
