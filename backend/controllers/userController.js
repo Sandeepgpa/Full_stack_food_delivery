@@ -21,6 +21,14 @@ const registerUser = async (req, res) => {
             return res.json({success:false, message:"User already exist"});
         }
 
+        
+        //validate email format & password strength
+        if(!validator.isEmail(email)){
+            return res.json({success:false, message:"Invalid email format"});
+        }
+        if(password.length < 8){
+            return res.json({success:false, message:"Password must be at least 8 characters long"});
+        }
     } catch (error) {
         
     }
