@@ -4,6 +4,7 @@ import cors from "cors";
 import connectdb from "./config/db.js";
 import dns from "dns";
 import foodRouter from "./routes/foodRoute.js";
+import userRoute from "./routes/userRoute.js";
 
 dotenv.config();
 
@@ -29,8 +30,9 @@ app.use(express.json());
 connectdb();
 
 // API endpoints  
-app.use("/api/food" ,foodRouter)
+app.use("/api/food" ,foodRouter);
 app.use("/images",express.static("uploads"));
+app.use("/api/user", userRoute);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
