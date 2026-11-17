@@ -13,8 +13,17 @@ const loginUser = async (req, res) => {
 // Register User
 
 const registerUser = async (req, res) => {
-   
+     const {name, email, password} = req.body;
+    try {
+        //check if user already exist
+        const existUser = await userModel.findOne({ email });
+        if(existUser){
+            return res.json({success:false, message:"User already exist"});
+        }
 
+    } catch (error) {
+        
+    }
 }
 
 export {loginUser, registerUser};
