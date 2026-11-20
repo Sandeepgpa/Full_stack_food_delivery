@@ -8,8 +8,27 @@ const saltRounds = Number(process.env.SALT_ROUNDS)
 // Login User
 
 const loginUser = async (req, res) => {
+    const {email, password} = req.body;
 
+    try {
+        
+        const user = await userModel.findOne({email})
 
+        if(!user){
+            res.json({success:false, message:"User Does not exist"});
+        }
+
+        const isPasswordMatched = await bcrypt.compare(password, user.password);
+
+        if (!isPasswordMatched) {
+            res.json({success:false, message:"Invalid Credentials"});
+        }
+
+        const token = createToken(user._id);
+        res.json({success:true, token})
+    } catch (error) {
+        res.json({success:false, message:"Error"})
+    }
 }
 
 const createToken = (id) => {
@@ -46,7 +65,7 @@ const registerUser = async (req, res) => {
         const User = await newUser.save();
         const token = createToken(User._id);
 
-        res.json({success:true, message:"User registered successfully",token, user:User});
+        res.json({success:true,token});
 
     } catch (error) {
         res.json({success:false, message:"Error"})
