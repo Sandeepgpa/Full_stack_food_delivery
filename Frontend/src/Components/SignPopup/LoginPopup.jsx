@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './LoginPopup.css'
 import { assets } from '../../assets/assets';
 import axios from 'axios'
+import { StoreContext } from '../../context/StoreContext';
 
 const LoginPopup = ({ setShowLogin }) => {
 
     const url = import.meta.env.VITE_SERVER_URL;
 
     const [currentState,setCurrentState] = useState("Sign Up");
+
+    const {setToken} = useContext(StoreContext)
 
     const [data, setData] = useState({
         name:"",
@@ -32,17 +35,13 @@ const LoginPopup = ({ setShowLogin }) => {
         const response = await axios.post(newUrl,data)
 
         if (response.data.success) {
+            setToken(response.data.token);
             localStorage.setItem("token", response.data.token);
             setShowLogin(false)
         } else {
             alert(response.data.message)
         }
     }
-
-    useEffect(()=>{
-        console.log(data)
-    },[data])
-
   return (
     
         <div className="login-popup">
