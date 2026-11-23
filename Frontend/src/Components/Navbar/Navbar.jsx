@@ -53,7 +53,7 @@ const Navbar = ({ setShowLogin }) => {
         ) : (
           <div className="relative group">
             <img src={assets.profile_icon} alt="" />
-            <ul className="absolute hidden right-0 z-1 group-hover:flex flex-col gap-2.5 bg-[#fff2ef] px-6 py-3 rounded-sm border border-solid border-[tomato] outline-1 outline-solid outline-white">
+            <ul className="absolute hidden right-0 z-1 group-hover:flex flex-col gap-2.5 bg-[#fff2ef] px-3 py-6 rounded-sm border border-solid border-[tomato] outline-1 outline-solid outline-white">
               <li>
                 <img src={assets.bag_icon} alt="" />
                 <p>Orders</p>
