@@ -53,14 +53,14 @@ const Navbar = ({ setShowLogin }) => {
         ) : (
           <div className="relative group">
             <img src={assets.profile_icon} alt="" />
-            <ul className="absolute hidden right-0 z-1 group-hover:flex flex-col gap-2.5 bg-[#fff2ef] px-3 py-6 rounded-sm border border-solid border-[tomato] outline-1 outline-solid outline-white">
-              <li>
-                <img src={assets.bag_icon} alt="" />
+            <ul className="absolute hidden right-0 z-10 group-hover:flex flex-col gap-2.5 bg-[#fff2ef] px-4 py-6 w-max rounded-sm border border-solid border-[tomato] outline-1 outline-solid outline-white">
+              <li className="flex items-center gap-2.5 cursor-pointer">
+                <img src={assets.bag_icon} alt="" className="w-5"/>
                 <p>Orders</p>
               </li>
               <hr />
-              <li>
-                <img src={assets.logout_icon} alt="" />
+              <li className="flex items-center gap-2.5 cursor-pointer">
+                <img src={assets.logout_icon} alt="" className="w-5"/>
                 <p>Logout</p>
               </li>
             </ul>
