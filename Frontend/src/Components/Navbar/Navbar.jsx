@@ -1,14 +1,21 @@
 import React, { useContext, useState } from "react";
 import "../Navbar/Navbar.css";
 import { assets } from "../../assets/assets";
-import { Link } from "react-router-dom";
-import { useCallback } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { StoreContext } from "../../context/StoreContext";
 
 const Navbar = ({ setShowLogin }) => {
   const [menu, setMenu] = useState("mobile-app");
 
   const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
+
+  const navigate = useNavigate()
+
+  const logout = () =>{
+    localStorage.removeItem("token");
+    setToken("");
+    navigate("/");
+  }
 
   return (
     <div className="navbar">
@@ -59,7 +66,7 @@ const Navbar = ({ setShowLogin }) => {
                 <p>Orders</p>
               </li>
               <hr />
-              <li className="flex items-center gap-2.5 cursor-pointer">
+              <li onClick={logout} className="flex items-center gap-2.5 cursor-pointer">
                 <img src={assets.logout_icon} alt="" className="w-5"/>
                 <p>Logout</p>
               </li>
