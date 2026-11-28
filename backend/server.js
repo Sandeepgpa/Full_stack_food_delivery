@@ -15,12 +15,17 @@ const PORT = process.env.PORT;
 dns.setServers(["1.1.1.1", "8.8.8.8"]);
 
 //CORS configuration
-app.use(cors({
-    origin: 'http://localhost:5173',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders:["Content-type","Authorization"],
-    optionsSuccessStatus:200
-}));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:5174",
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-type", "Authorization"],
+    optionsSuccessStatus: 200,
+  }),
+);
 
 //middlwear
 app.use(express.json());
